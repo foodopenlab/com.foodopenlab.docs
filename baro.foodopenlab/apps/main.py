@@ -24,11 +24,38 @@ def read_titanic_data():
 
     return df.to_dict(orient="records")
 
+@app.get("/titanic/count")
+def read_titanic_count():
+    james = James()
+    df = james.get_count()
+
+    return df.to_dict(orient="records")
+
+@app.get("/titanic/tree")
+def read_titanic_tree():
+    james = James()
+    has_model = james.has_decision_tree_model()
+
+    return {"has_decision_tree_model": has_model}
+
+@app.get("/titanic/count/survived")
+def read_titanic_count_survived():
+    james = James()
+    df = james.get_count_survived()
+
+    return df.to_dict(orient="records")  
+
+@app.get("/titanic/count/dead")
+def read_titanic_count_dead():
+    james = James()
+    df = james.get_count_dead()
+
+    return df.to_dict(orient="records")        
 
 @app.get("/doro/data")
 def read_doro_data():
-    dorodirector = DoroDirector()
-    df = dorodirector.get_data()
+    doro_director = DoroDirector()
+    df = doro_director.get_data()
 
     return df.to_dict(orient="records")    
 

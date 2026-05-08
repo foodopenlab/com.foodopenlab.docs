@@ -1,13 +1,3 @@
-'''import pandas as pd
-
-class DoroReader:
-    def __init__(self):
-        pass
-
-    def get_data(self):
-        df = pd.read_csv("doro-dataset.csv", encoding="cp949")
-        print(df.head())  
-        '''
 import json
 from pathlib import Path
 
@@ -23,6 +13,7 @@ class DoroReader:
 
     def get_data(self):
         df = pd.read_csv(_CSV_PATH, encoding="cp949")
+        # 인덱스 1번 행만 반환 (DataFrame 형태 유지)
         return df.iloc[[1]].astype(object).where(df.iloc[[1]].notna(), None)
 
     def head_records(self, n: int = 10) -> list[dict]:
