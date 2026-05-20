@@ -11,10 +11,10 @@
             "id": "c11b5564eca27aaf",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "새 탭"
+              "icon": "lucide-git-fork",
+              "title": "그래프 뷰"
             }
           }
         ]
@@ -179,8 +179,15 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "4de7a1a899cd1806",
+  "active": "c11b5564eca27aaf",
   "lastOpenFiles": [
+    "HACCP 개발/haccp_monitor_phase4_backend_db_cursor_prompt.md",
+    "DevOps/Backend/ENTITY_RULES.md",
+    "HACCP 개발/haccp_monitor_phase3_cursor_prompt.md",
+    "DevOps/Projects/README.md",
+    "DevOps/Projects",
+    "DevOps/FOUNDATIONS.md",
+    "DevOps/README.md",
     "GoF 패턴.md",
     "환영합니다!.md"
   ]
