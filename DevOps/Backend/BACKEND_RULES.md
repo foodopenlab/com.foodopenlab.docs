@@ -1,14 +1,14 @@
 # 백엔드 공통 규칙 (FastAPI / Python)
 
-> `@docs/DevOps/Backend/BACKEND_RULES.md`  
-> 전제: [FOUNDATIONS.md](../FOUNDATIONS.md) · 제품 스펙: `docs/{프로젝트}/`
+> `@plan.docs/DevOps/Backend/BACKEND_RULES.md`  
+> 전제: [FOUNDATIONS.md](../FOUNDATIONS.md) · 제품 스펙: `plan.plan.docs/{프로젝트}/`
 
 ---
 
 ## 1. 적용 범위
 
 - Python **FastAPI** 기반 API 서버
-- 모노레포에서 `backend/` 또는 `apps/` 하위가 일반적이나, **폴더명은 저장소 README를 따름**
+- 모노레포에서 `com.auditor/` 또는 `apps/` 하위가 일반적이나, **폴더명은 저장소 README를 따름**
 - 이 문서는 **패턴·원칙**만 다룸. OpenAPI 서비스 코드·엔드포인트 목록은 **프로젝트 docs**에 둠
 
 ---
@@ -90,27 +90,27 @@
 ## 9. Cursor 프롬프트 (복사용)
 
 ```text
-@docs/DevOps/FOUNDATIONS.md @docs/DevOps/Backend/BACKEND_RULES.md
+@plan.docs/DevOps/FOUNDATIONS.md @plan.docs/DevOps/Backend/BACKEND_RULES.md
 
 공통 백엔드 지침을 인지한 뒤 [작업]을 구현하세요.
 - Controller → Service → Repository
 - main.py는 라우트·DI만
-- env/제품 스펙은 docs/{프로젝트}/ 및 .env.example 참고
+- env/제품 스펙은 plan.docs/{프로젝트}/ 및 .env.example 참고
 - 요청 범위 밖 수정 금지
 ```
 
 ---
 
-## 부록: 현재 저장소(com.ragwatson) 참고 링크
+## 부록: 현재 저장소(com.foodopenlab) 참고 링크
 
 > **제품 전용** — 다른 프로젝트에 그대로 적용하지 말고, “문서를 어디에 두는지” 참고용.
 
 | 항목 | 위치 |
 |------|------|
-| HACCP Phase STEP | `docs/HACCP 개발/` |
-| 앱 진입 | `backend/apps/main.py` |
-| 회원 C-S-R 예 | `backend/apps/mfds/` |
-| 식안나 캐시 예 | `backend/apps/services/food_safety_*_cache.py` |
+| HACCP Phase STEP | `plan.docs/HACCP 개발/` |
+| 앱 진입 | `com.auditor/main.py` |
+| 회원 C-S-R 예 | `com.auditor/apps/mfds/` |
+| 식안나 캐시 예 | `com.auditor/apps/services/food_safety_*_cache.py` |
 
 env 키 예시는 해당 프로젝트 `.env` / HACCP 프롬프트 MD를 보며, **이 DevOps 문서에는 고정하지 않음**.
 

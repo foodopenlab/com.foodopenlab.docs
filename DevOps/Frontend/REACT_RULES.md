@@ -1,7 +1,7 @@
 # 프론트엔드 공통 규칙 (React / Next.js)
 
-> `@docs/DevOps/Frontend/REACT_RULES.md`  
-> 전제: [FOUNDATIONS.md](../FOUNDATIONS.md) · 화면 STEP: `docs/{프로젝트}/`
+> `@plan.docs/DevOps/Frontend/REACT_RULES.md`  
+> 전제: [FOUNDATIONS.md](../FOUNDATIONS.md) · 화면 STEP: `plan.docs/{프로젝트}/`
 
 ---
 
@@ -98,7 +98,7 @@ type FormPageState = {
 }
 ```
 
-### 공통 헬퍼 (`frontend/lib/form-feedback.ts`)
+### 공통 헬퍼 (`watcher.www/lib/form-feedback.ts`)
 
 ```tsx
 import { mergeFieldAndClearFormError } from "@/lib/form-feedback"
@@ -153,7 +153,7 @@ patchState({ formError: null })
 ## 7. Cursor 프롬프트 (복사용)
 
 ```text
-@docs/DevOps/FOUNDATIONS.md @docs/DevOps/Frontend/REACT_RULES.md
+@plan.docs/DevOps/FOUNDATIONS.md @plan.docs/DevOps/Frontend/REACT_RULES.md
 
 공통 프론트 지침을 인지한 뒤 [작업]을 구현하세요.
 
@@ -167,18 +167,18 @@ useState가 필드마다 여러 개면 단일 객체 + patchState로 압축하�
 ### 짧은 버전
 
 ```text
-@docs/DevOps/Frontend/REACT_RULES.md — useState 객체 압축 + FormData 제출 패턴으로 리팩터링해 주세요.
+@plan.docs/DevOps/Frontend/REACT_RULES.md — useState 객체 압축 + FormData 제출 패턴으로 리팩터링해 주세요.
 ```
 
 ---
 
-## 부록: 현재 저장소(com.ragwatson) 참고
+## 부록: 현재 저장소(com.foodopenlab) 참고
 
 | 항목 | 위치 |
 |------|------|
-| 폼 state 예 | `frontend/app/signup/page.tsx` |
-| 입력 시 에러 Alert 제거 | `frontend/lib/form-feedback.ts` |
-| HACCP UI STEP | `docs/HACCP 개발/haccp_monitor_cursor_prompt.md` |
+| 폼 state 예 | `watcher.www/app/signup/page.tsx` |
+| 입력 시 에러 Alert 제거 | `watcher.www/lib/form-feedback.ts` |
+| HACCP UI STEP | `plan.docs/HACCP 개발/haccp_monitor_cursor_prompt.md` |
 
 ---
 
