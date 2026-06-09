@@ -1,6 +1,6 @@
 # DevOps 공통 기반 (Foundations)
 
-> `@docs/DevOps/FOUNDATIONS.md` — 스택·제품을 가리지 않는 **기본 방향성**.  
+> `@plan.docs/DevOps/FOUNDATIONS.md` — 스택·제품을 가리지 않는 **기본 방향성**.  
 > FastAPI·React 구체 문법은 [Backend](./Backend/BACKEND_RULES.md)·[Frontend](./Frontend/REACT_RULES.md) 를 따릅니다.
 
 ---
@@ -8,8 +8,8 @@
 ## 1. 문서가 코드보다 먼저다 (SSOT)
 
 - 코딩 규칙·API 계약·env 키 이름은 **문서에 먼저** 정하고, 코드는 문서를 따른다.  
-- 에이전트는 `.cursorrules` 요약만 보고 구현하지 않는다. **`docs/` 해당 MD를 Read 또는 `@` 첨부** 후 진행.  
-- 한 제품의 상세 STEP·OpenAPI 서비스 번호·화면 목록은 **DevOps가 아닌** `docs/{프로젝트}/` 에 둔다.
+- 에이전트는 `.cursorrules` 요약만 보고 구현하지 않는다. **`plan.docs/` 해당 MD를 Read 또는 `@` 첨부** 후 진행.  
+- 한 제품의 상세 STEP·OpenAPI 서비스 번호·화면 목록은 **DevOps가 아닌** `plan.docs/{프로젝트}/` 에 둔다.
 
 ---
 
@@ -81,8 +81,8 @@ HTTP 진입 · 비즈니스 로직 · 저장·외부 I/O를 **한 파일에 섞�
 짧은 사용자 지시 예:
 
 ```text
-@docs/DevOps/FOUNDATIONS.md @docs/DevOps/Backend/BACKEND_RULES.md
-[작업]. 프로젝트 스펙은 docs/HACCP 개발/ 해당 파일 참고.
+@plan.docs/DevOps/FOUNDATIONS.md @plan.docs/DevOps/Backend/BACKEND_RULES.md
+[작업]. 프로젝트 스펙은 plan.docs/HACCP 개발/ 해당 파일 참고.
 ```
 
 ---

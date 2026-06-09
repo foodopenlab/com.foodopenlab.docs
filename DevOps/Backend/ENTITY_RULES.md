@@ -1,6 +1,6 @@
 # 엔티티·ORM 필드 규칙 (SQLModel / SQLAlchemy)
 
-> `@docs/DevOps/Backend/ENTITY_RULES.md`  
+> `@plan.docs/DevOps/Backend/ENTITY_RULES.md`  
 > 전제: [FOUNDATIONS.md](../FOUNDATIONS.md) · [BACKEND_RULES.md](./BACKEND_RULES.md)
 
 ---
