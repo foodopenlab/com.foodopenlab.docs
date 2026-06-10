@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevOps/Backend/MFDS_ERD.md",
+                "file": "CLAUDE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MFDS_ERD"
+              "title": "CLAUDE"
             }
           }
         ]
@@ -185,8 +185,20 @@
   },
   "active": "c11b5564eca27aaf",
   "lastOpenFiles": [
-    "DevOps/Backend/TITANIC_ERD.md",
+    "환영합니다!.md",
+    ".git",
+    "CLAUDE.md",
+    "97-wiki",
+    "94-wiki",
+    ".obsidian/community-plugins.json",
+    ".obsidian/plugins/show-hidden-files/manifest.json",
+    ".obsidian/plugins/show-hidden-files/main.js",
+    ".obsidian/plugins/show-all-hidden-files/manifest.json",
+    ".obsidian/plugins/show-all-hidden-files/main.js",
+    ".obsidian/snippets/hide-cache.css",
+    ".obsidian/plugins/show-hidden-files",
     "DevOps/Backend/MFDS_ERD.md",
+    "DevOps/Backend/TITANIC_ERD.md",
     "Pasted image 20260521175427.png",
     "HACCP 개발/haccp_monitor_phase3_cursor_prompt.md",
     "HACCP 개발/haccp_monitor_phase2_cursor_prompt.md",
@@ -199,10 +211,8 @@
     "DevOps/Backend/BACKEND_RULES.md",
     "DevOps/Backend/ENTITY_RULES.md",
     "DevOps/Projects/README.md",
-    "DevOps/Projects",
     "DevOps/FOUNDATIONS.md",
     "DevOps/README.md",
-    "GoF 패턴.md",
-    "환영합니다!.md"
+    "GoF 패턴.md"
   ]
 }
