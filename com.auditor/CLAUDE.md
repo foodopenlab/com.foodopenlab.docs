@@ -27,6 +27,7 @@ Parent: [`../../CLAUDE.md`](../../CLAUDE.md) · Cursor summary: [`cursor-rules.m
 | `mfds_user.*` | MFDS 사용자 API | `user_router` |
 | `mfds_admin.*` | MFDS 관리자 API | `admin_router` |
 | `titanic.*` | Titanic 학습/데모 | `titanic_router` → `/api/titanic/...` |
+| `siliconvalley.*` | Piper 크루 (실리콘밸리) | `piper_router` → `/api/piper/...` |
 
 기타 `apps/` 형제: `imitation_game`, `inception`, `social_network` 등 — 동일 프랙탈 패턴으로 `_docs/` 추가.
 
@@ -41,6 +42,7 @@ com.auditor/apps/{domain}/_docs/CLAUDE.md
 | App | Spec |
 |-----|------|
 | titanic | [`apps/titanic/_docs/CLAUDE.md`](../../com.auditor/apps/titanic/_docs/CLAUDE.md) |
+| siliconvalley | [`apps/siliconvalley/_docs/CLAUDE.md`](../../com.auditor/apps/siliconvalley/_docs/CLAUDE.md) |
 | mfds_user | [`apps/mfds_user/_docs/CLAUDE.md`](../../com.auditor/apps/mfds_user/_docs/CLAUDE.md) |
 | mfds_admin | [`apps/mfds_admin/_docs/CLAUDE.md`](../../com.auditor/apps/mfds_admin/_docs/CLAUDE.md) |
 
