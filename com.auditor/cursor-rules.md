@@ -24,12 +24,23 @@ Parent: [`../../cursor-rules.md`](../../cursor-rules.md) · Full spec: [`CLAUDE.
 | Inbound | router, schema, inbound mapper |
 | Application | use case port, interactor, dto |
 | Domain | entity, value_object |
-| Outbound | orm, pg repository, outbound mapper |
+| Outbound | orm, repository adapter, outbound mapper |
 | dependencies | `get_*_repository` + `get_*_use_case` only |
 
-**Flow:** `Router → UseCase → Interactor → Repository → PgRepository` · `Schema ↔ DTO ↔ ORM`
+**Flow:** `Router → UseCase → Interactor → Output port → Repository` · `Schema ↔ DTO ↔ ORM`
 
-**금지:** Router→PgRepository · Interactor→`Depends` · Interactor→inbound Schema · Domain→FastAPI/SQLAlchemy
+**금지:** Router→Repository (adapter) · Interactor→`Depends` · Interactor→inbound Schema · Domain→FastAPI/SQLAlchemy
+
+### Use case `async` / `def`
+
+| 성격 | 형태 | 예 |
+|------|------|-----|
+| CPU-bound (Kiwi, 순수 계산) | `def` | `analyze_intent` |
+| I/O-bound (DB·LLM·HTTP) | `async def` | `introduce_myself` |
+
+- CPU-only 메서드에 `async def`만 달고 `await` 없음 → **금지** (가짜 비동기, 루프 블로킹)
+- 무거운 CPU → router 등에서 `await asyncio.to_thread(use_case.method, ...)` — 상세: [`CLAUDE.md`](CLAUDE.md) § Use case · interactor
+- **시그니처·레이어 책임 임의 변경 금지** (오류 수정만, 구조는 사용자 코드 유지)
 
 **Apps:** `titanic`, `mfds_user`, `mfds_admin` (+ sibling `apps/{domain}/_docs/`)
 

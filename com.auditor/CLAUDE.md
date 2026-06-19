@@ -64,24 +64,45 @@ All backend feature work **must** comply with:
 | **Inbound adapter** (router, schema, inbound mapper) | HTTP 검증, Schema↔DTO 변환 | SQL, ORM, 비즈니스 규칙 |
 | **Application** (use case port, interactor, dto) | 유스케이스 오케스트레이션 | FastAPI `Depends`, ORM |
 | **Domain** (entity, value object) | 도메인 규칙·타입 | FastAPI, SQLAlchemy, HTTP |
-| **Outbound adapter** (pg/memory/orm, outbound mapper) | 영속성·외부 I/O | `HTTPException` (라우터 책임) |
+| **Outbound adapter** (repositories/memory/orm, outbound mapper) | 영속성·외부 I/O | `HTTPException` (라우터 책임) |
 | **dependencies/** | Composition root — `get_*_repository` → `get_*_use_case` | 비즈니스 로직 |
 
 **표준 호출 흐름:**
 
 ```
 Router → Schema → (inbound mapper) → Query/Command DTO
-      → UseCase (abstract) → Interactor → Repository (abstract) → PgRepository
+      → UseCase (abstract) → Interactor → Output port (abstract) → Repository
       → Response DTO → Router → Response Schema
 ```
 
 **DIP 금지:**
 
-- Router → `*PgRepository` 직접 import
+- Router → `*Repository` (adapter) 직접 import
 - Interactor → `Depends`, inbound `*Schema` (DTO/Command 사용)
 - Domain → framework import
 
-**Fractal naming:** 동일 capability 접두·접미 (`crew_smith_captain_router`, `_schema`, `_dto`, `_interactor`, `_repository`, `_pg_repository`, `_provider`).
+**Fractal naming:** 동일 capability 접두·접미 (`crew_smith_captain_router`, `_schema`, `_dto`, `_interactor`, `_port`, `_repository`, `_provider`).
+
+### Use case · interactor — `async` 붙일까?
+
+**같은 use case 클래스 안에서도 메서드마다 다를 수 있다.** `async`는 “클래스가 async라서”가 아니라 **안에서 `await`할 I/O가 있을 때만** 붙인다.
+
+| 메서드 성격 | 예 | use case / interactor |
+|-------------|-----|------------------------|
+| **CPU-bound** — 동기 연산만, DB·네트워크·파일 없음 | Kiwi `tokenize()`, dict 점수 계산 (`analyze_intent`) | `def` |
+| **I/O-bound** — DB·LLM·HTTP·파일 등 `await` 필요 | `repository.introduce_myself(...)`, 외부 API | `async def` |
+
+**금지:** CPU만 하는 메서드에 `async def`만 달고 내부에 `await` 없음 → 코루틴만 생기고 **이벤트 루프는 그대로 블로킹**. 비동기인 것처럼 보이지만 실제로는 더 헷갈리는 동기 코드가 된다.
+
+**CPU가 무거워 이벤트 루프 블로킹이 문제일 때** — port를 `async def`로 바꾸기보다 **호출 측(router 등)** 에서 스레드풀 위임:
+
+```python
+result = await asyncio.to_thread(use_case.analyze_intent, question)
+```
+
+참고 예 (`titanic`): `analyze_intent` → `def` · `introduce_myself` → `async def` (repository I/O `await`).
+
+**에이전트:** 오류 수정 시 use case/interactor의 **동기·비동기 시그니처를 임의로 바꾸지 않는다.** 레이어·책임(예: interactor ↔ repository)도 사용자 요청 없이 옮기지 않는다.
 
 ---
 
